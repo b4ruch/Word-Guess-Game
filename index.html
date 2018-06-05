@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!-- 
+***********************************************
+*Author: Baruch Flores                        *
+*Homework 3: JavaScript Assignment            *
+*UCB Extension - Full-Stack Bootcamp          *
+*June 2018                                    *
+***********************************************
+--> 
+
+<!--[if lt IE 7]>      <html id="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html id="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html id="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html id="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Word Guess Game</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p id="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <h1>HangMan</h1>
+    <br>
+    <h3>Press any key to get started</h3>
+    <h3 style="display: inline;">Wins: </h3>
+    <span id="wins"></span>
+    <!-- <span id="wins"></span> -->
+    <br>
+    <h3>Current Word: </h3>
+    <span id="currentWord"></span>
+    <h3>Number of guesses remaining: </h3>
+    <span id="guessesRemaining"></span>
+    <br>
+    <h3>Letters already guessed: </h3>
+    <span id="guessedLetters"></span>
+
+
+    <script src="assets/javascript/game.js" async defer></script>
+    <!-- 
+    <script type="text/javascript">
+    
+    var wins = document.getElementById("wins");
+    document.onkeyup = function (event) {
+        wins.textContent = "FU";
+    };    
+    </script> -->
+</body>
+
+</html>

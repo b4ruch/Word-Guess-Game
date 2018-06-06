@@ -9,6 +9,10 @@
 
 // Global variable that stores total user wins
 var wins = 0;
+
+//Global var that stores total user loses
+var losses = 0;
+
 // var winsHtml = document.getElementById("wins");
 
 //Object game with properties like current word, list of words, guessed words, etc
@@ -20,6 +24,7 @@ var Hangman = {
     // guessedLetters: [],
     guessedLetters: ['a', 'b', 'c'],
     key: "s",
+    lives: 12,
 
     // Game Logic here:
     // If user presses any key,
@@ -55,6 +60,8 @@ var Hangman = {
         indexArr.forEach(element => {
             Hangman.currentWord = Hangman.currentWord.substring(0, element) + Hangman.key + Hangman.currentWord.substring(element + 1);
         });
+
+        document.getElementById("currentWord").textContent = this.currentWord;
     },
 
     //checks if the word is complete by searching any remaining dashes in current word
@@ -80,29 +87,35 @@ document.onkeypress = function (event) {
             Hangman.updateCurrentWord(indexArr);
 
             // -> if the word is complete, user wins, game is restarted
-            console.log(Hangman.isWordComplete());
-            // debugger;
-            // if ()
+            if (Hangman.isWordComplete()) {
+                wins += 1;
+                alert("You are a hero! You saved the Hangman");
+                document.getElementById("wins").textContent = wins;
+                startGame();
+            }
         }
         else {
-            //if false, decrease lifes by 1 and check if still alive.
-
+            //if false, decrease lives by 1 and check if not alive
+            if (!--Hangman.lives) {
+                losses++;
+                alert("Ohh no.. hangman is dead!");
+                document.getElementById("losses").textContent = losses;
+                startGame();
+            }
+            else {
+                document.getElementById("guessesRemaining").textContent = this.lives;
+            }
+            
         }
-
-
-
     }
-
     else
         alert("You already guessed that letter!");
 };
 
 
-
 // -> if no match, discount 1 to the remaining guesses 
 // -> if remaining guesses is less than 1, user loses and game is restarted
 //    (show a message or something to indicate this)
-
 
 function startGame() {
     Hangman.index = Math.floor(Math.random() * (Hangman.listOfWords.length));
@@ -112,7 +125,10 @@ function startGame() {
     Hangman.currentWord = Hangman.currentWord.padStart(Hangman.selectedWord.length, "-");
     Hangman.guessedLetters = [];
     Hangman.key = "";
+    Hangman.lives = 12;
+    // don't forget the function to refresh the HTML values
     // debugger;
+    //Fix Hangman and .this references
 }
 
 startGame();

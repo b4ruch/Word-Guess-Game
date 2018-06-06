@@ -31,7 +31,7 @@ var Hangman = {
     // Check if user had already guessed that letter
     isInGuessedLetters: function () {
         //if letter is guessed, return true, else false
-        var list = this.guessedLetters.filter(el => el === Hangman.key.toLowerCase());
+        var list = this.guessedLetters.filter(el => el === this.key.toLowerCase());
         if (list.length)
             return true;
         else
@@ -39,7 +39,7 @@ var Hangman = {
     },
     // ->if not,  update the guessed letters
     updateGuessedLetters: function () {
-        this.guessedLetters.push(Hangman.key);
+        this.guessedLetters.push(this.key);
         document.getElementById("guessedLetters").textContent = this.guessedLetters.toString();
     },
 
@@ -48,7 +48,7 @@ var Hangman = {
         var charPos = [];
         var index = 0;
 
-        while ((index = Hangman.selectedWord.indexOf(Hangman.key, index)) > -1) {
+        while ((index = this.selectedWord.indexOf(this.key, index)) > -1) {
             charPos.push(index);
             index++;
         }
@@ -58,7 +58,7 @@ var Hangman = {
     // updates currentWord showing the new matched letters
     updateCurrentWord: function (indexArr) {
         indexArr.forEach(element => {
-            Hangman.currentWord = Hangman.currentWord.substring(0, element) + Hangman.key + Hangman.currentWord.substring(element + 1);
+            this.currentWord = this.currentWord.substring(0, element) + this.key + this.currentWord.substring(element + 1);
         });
 
         document.getElementById("currentWord").textContent = this.currentWord;
@@ -66,7 +66,7 @@ var Hangman = {
 
     //checks if the word is complete by searching any remaining dashes in current word
     isWordComplete: function () {
-        if (/-/.test(Hangman.currentWord))
+        if (/-/.test(this.currentWord))
             return false;
         else
             return true;
@@ -103,7 +103,7 @@ document.onkeypress = function (event) {
                 startGame();
             }
             else {
-                document.getElementById("guessesRemaining").textContent = this.lives;
+                document.getElementById("guessesRemaining").textContent = Hangman.lives;
             }
             
         }
@@ -126,10 +126,21 @@ function startGame() {
     Hangman.guessedLetters = [];
     Hangman.key = "";
     Hangman.lives = 12;
+    initHtml();
     // don't forget the function to refresh the HTML values
     // debugger;
-    //Fix Hangman and .this references
+
+}
+
+
+// Initializes HTML dynamic content
+function initHtml () {
+
+    document.getElementById("wins").textContent = wins;
+    document.getElementById("losses").textContent = losses;
+    document.getElementById("currentWord").textContent = Hangman.currentWord;
+    document.getElementById("guessesRemaining").textContent = Hangman.lives;
+    document.getElementById("guessedLetters").textContent = Hangman.guessedLetters;
 }
 
 startGame();
-

@@ -6,6 +6,14 @@
 ***********************************************/
 
 
+//Global HTML handlers
+var wins = document.getElementById("wins");
+var losses = document.getElementById("losses");
+var currentWord = document.getElementById("currentWord");
+var guessesRemaining = document.getElementById("guessesRemaining");
+var guessedLetters = document.getElementById("guessedLetters");
+
+
 //Hangman Object
 var Hangman = {
     listOfWords: ["riesling", "gewurztraminer", "chardonnay", "sauvignon blanc", "syrah", "cabernet sauvignon", "pinot noir", "merlot", "zinfandel"],
@@ -29,7 +37,12 @@ var Hangman = {
         this.selectedWord = this.listOfWords[this.index];
         console.log(this.selectedWord);
         this.currentWord = "";
-        this.currentWord = this.currentWord.padStart((this.selectedWord).length, "-");
+        this.currentWord = this.currentWord.padStart(this.selectedWord.length, "-");
+        for (var i = 0; i < this.selectedWord.length; i++) {
+            if (this.selectedWord[i] == " ") {
+                this.currentWord = this.currentWord.substring(0, i) + " " + this.currentWord.substring(i + 1);
+            }
+        }
         this.guessedLetters = [];
         this.key = "";
         this.lives = 12;
@@ -55,7 +68,7 @@ var Hangman = {
     //Updates guessed letters
     updateGuessedLetters: function () {
         this.guessedLetters.push(this.key);
-        document.getElementById("guessedLetters").textContent = this.guessedLetters.toString();
+        guessedLetters.textContent = this.guessedLetters.toString();
     },
 
     //Returns an array of indexes that matched the key pressed, or empty array if no match
@@ -92,32 +105,45 @@ document.onkeypress = function (event) {
     //if key has not been guessed before
     if (!Hangman.isInGuessedLetters()) {
         Hangman.updateGuessedLetters();
-        document.getElementById("guessedLetters").textContent = Hangman.guessedLetters;
+        guessedLetters.textContent = Hangman.guessedLetters;
 
         // -> check if the letter matches any character in the selected word
         var indexArr = Hangman.isAMatch();
         if (indexArr.length) {
             // If so, show the letters in current word
             Hangman.updateCurrentWord(indexArr);
-            document.getElementById("currentWord").textContent = Hangman.currentWord;
+            currentWord.textContent = Hangman.currentWord;
             // -> if the word is complete, user wins and game is restarted
             if (Hangman.isWordComplete()) {
                 Hangman.wins += 1;
-                document.getElementById("wins").textContent = Hangman.wins;
+                wins.textContent = Hangman.wins;
+                currentWord.style = "animation: blinker 1s linear infinite;";
+
                 // alert("You are a hero! You saved the Hangman");
-                startGame();
+                window.setTimeout(function () {
+                    currentWord.style = "";
+                    startGame();
+                }, 1000);
+
+                // debugger;
             }
         }
         else {
             //if false, decrease lives by 1 and check if not alive
             if (!--Hangman.lives) {
                 Hangman.losses++;
-                document.getElementById("losses").textContent = Hangman.losses;
+                losses.textContent = Hangman.losses;
+                losses.style = "animation: blinker 1s linear infinite;";
+                currentWord.style = "color: red";
                 // alert("Ohh no.. hangman is dead!");
-                startGame();
+                window.setTimeout(function () {
+                    losses.style = "";
+                    currentWord.style = "";
+                    startGame();
+                }, 1000);
             }
             else {
-                document.getElementById("guessesRemaining").textContent = Hangman.lives;
+                guessesRemaining.textContent = Hangman.lives;
             }
         }
     }
@@ -125,21 +151,18 @@ document.onkeypress = function (event) {
         alert("You already guessed that letter!");
 };
 
-
 function startGame() {
     Hangman.initialize();
     initHtml();
 }
 
-
 // Initializes HTML dynamic content
 function initHtml() {
-
-    document.getElementById("wins").textContent = Hangman.wins;
-    document.getElementById("losses").textContent = Hangman.losses;
-    document.getElementById("currentWord").textContent = Hangman.currentWord;
-    document.getElementById("guessesRemaining").textContent = Hangman.lives;
-    document.getElementById("guessedLetters").textContent = Hangman.guessedLetters;
+    wins.textContent = Hangman.wins;
+    losses.textContent = Hangman.losses;
+    currentWord.textContent = Hangman.currentWord;
+    guessesRemaining.textContent = Hangman.lives;
+    guessedLetters.textContent = Hangman.guessedLetters;
 }
 
 startGame();

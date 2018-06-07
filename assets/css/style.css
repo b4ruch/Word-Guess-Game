@@ -1,9 +1,16 @@
+/**********************************************
+*Author: Baruch Flores                        *
+*Homework 3: JavaScript Assignment            *
+*UCB Extension - Full-Stack Bootcamp          *
+*June 2018                                    *
+***********************************************/
+
 @import url('https://fonts.googleapis.com/css?family=Roboto:300');
 @import url('https://fonts.googleapis.com/css?family=Coiny|Titillium+Web:700');
 body {
     /* background: linear-gradient(141deg, #ccc 25%, #eee 40%, #ddd 55%); */
-    /* background: repeating-linear-gradient(141deg, #fff 10%, rgb(255, 231, 174) 15%, #ddd 20%, rgb(243, 237, 226) 25%); */
-    background-color: rgb(72, 111, 124);
+    background: repeating-linear-gradient(141deg, #fff 10%, rgb(255, 231, 174) 15%, #ddd 20%, rgb(243, 237, 226) 25%);
+    /* background-color: rgb(72, 111, 124); */
     color: #555;
     font-family: 'Roboto';
     /* font-weight: 300; */
@@ -27,7 +34,7 @@ body {
     margin-top: 10rem;
     opacity: .8;
     font-size: 1.2rem;
-    letter-spacing: .3rem;
+    letter-spacing: .2rem;
 }
 
 .card_divider {
@@ -41,4 +48,19 @@ body {
     opacity: .8;
     font-size: 1.4rem;
     letter-spacing: .3rem;
+}
+
+#guessedLetters, #currentWord {
+    text-transform: uppercase;
+}
+
+#guessedLetters {
+    font-size: 1.2rem;
+    color: lightcoral;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
 }

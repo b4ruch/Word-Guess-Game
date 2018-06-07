@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+@import url('https://fonts.googleapis.com/css?family=Coiny|Titillium+Web:700');
+body {
+    /* background: linear-gradient(141deg, #ccc 25%, #eee 40%, #ddd 55%); */
+    /* background: repeating-linear-gradient(141deg, #fff 10%, rgb(255, 231, 174) 15%, #ddd 20%, rgb(243, 237, 226) 25%); */
+    background-color: rgb(72, 111, 124);
+    color: #555;
+    font-family: 'Roboto';
+    /* font-weight: 300; */
+    /* font-size: 32px; */
+    /* padding-top:40vh; */
+    height: 100vh;
+    /* overflow: hidden; */
+}
+
+.main_container {
+    max-height: 853px!important;
+    min-height: 853px!important;
+    height: 100%;
+    background-image: url("../images/background.jpg");
+    /* overflow: auto; */
+    /* position: relative; */
+}
+
+.stats {
+    font-family: 'Titillium Web', sans-serif;
+    margin-top: 10rem;
+    opacity: .8;
+    font-size: 1.2rem;
+    letter-spacing: .3rem;
+}
+
+.card_divider {
+    height: .2rem;
+    background-color: gold;
+}
+
+.word_guess {
+    font-family: 'Coiny', cursive;
+    margin-top: -15rem;
+    opacity: .8;
+    font-size: 1.4rem;
+    letter-spacing: .3rem;
+}

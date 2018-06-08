@@ -6,7 +6,7 @@
 ***********************************************/
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:300');
-@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Coiny|Titillium+Web:700');
+@import url('https://fonts.googleapis.com/css?family=Seaweed+Script|Arvo|Fjalla+One|Coiny|Titillium+Web:700');
 body {
     /* background: linear-gradient(141deg, #ccc 25%, #eee 40%, #ddd 55%); */
     background: repeating-linear-gradient(141deg, #fff 10%, rgb(255, 231, 174) 15%, #ddd 20%, rgb(243, 237, 226) 25%);
@@ -138,9 +138,49 @@ body {
     margin-top: 3rem;
 }
 
-/* #wineText {
-     text-justify: auto;
-} */
+  .shadow {
+    color: #fff;
+    font-family: Arvo;
+    font-weight: bold;
+    text-shadow:
+      -3px -3px 0 #ddd,
+      3px -3px 0 #ddd,
+      -3px 3px 0 #ddd,
+      3px 3px 0 #ddd,
+      4px 4px 0 #fff,
+      5px 5px 0 #fff,
+      6px 6px 0 #fff,
+      7px 7px 0 #fff;
+    line-height: 0.8em;
+    letter-spacing: 0.1em;
+    transform: scaleY(0.7);
+    margin:0;
+    text-align: center;
+  }
+  .gameHeader {
+    font-family: "Seaweed Script";
+    color: #fff;
+    text-align: center;
+    font-size: 3rem;
+    position: relative;
+    margin:0;
+  }
+  .gameHeader span {
+    background-color: rgba(34, 34, 34, 0);
+    padding: 0 0.3em;
+  }
+  .gameHeader:before {
+    content:"";
+    display: block;
+    position: absolute;
+    z-index:-1;
+    top: 50%;
+    width: 100%;
+    border-bottom: 3px solid #fff;
+  }
+  .gameHeader2 {
+    font-size: 3rem;
+  }
 
 @keyframes blinker {
     50% {

@@ -68,7 +68,7 @@ var Hangman = {
     },
 
     //Restarts Hangman to original values (game restart)
-    restart: () => {
+    restart: function() {
         this.initialize();
         this.wins = 0;
         this.losses = 0;
@@ -191,7 +191,7 @@ function initHtml() {
 
 //Full game restart
 restartGame.onclick = function () {
-    Hangman.restartGame();
+    Hangman.restart();
     initHtml();
 }
 

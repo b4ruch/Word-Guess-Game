@@ -16,8 +16,7 @@ var wineCard = document.getElementById("wineCard");
 var bgAudio = document.getElementById("bgAudio");
 var welcome = document.getElementById("welcome");
 var enterGame = document.getElementById("enterGame");
-welcome.click();
-
+var restartGame = document.getElementById("restartGame");
 
 
 //Hangman Object
@@ -173,14 +172,9 @@ document.onkeypress = function (event) {
         alert("You already guessed that letter!");
 };
 
- enterGame.onclick = function () {
-     bgAudio.play();
- }
-
-
-function startGame() {
-    Hangman.initialize();
-    initHtml();
+//Plays music once welcome screen is accepted
+enterGame.onclick = function () {
+    bgAudio.play();
 }
 
 // Initializes HTML dynamic content
@@ -195,5 +189,24 @@ function initHtml() {
     wineCard.style = "animation: appear 2s forwards;"
 }
 
+//Full game restart
+restartGame.onclick = function () {
+    Hangman.restartGame();
+    initHtml();
+}
+
+
+function startGame() {
+    Hangman.initialize();
+    initHtml();
+}
+
+//Bootstrap: Initialize  popovers
+$(function () {
+    $('[data-toggle="popover"]').popover()
+})
+
+//Manually triggers via JS the Bootstrap modal
+welcome.click();
+
 startGame();
-// bgAudio.play();

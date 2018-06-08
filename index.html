@@ -70,24 +70,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3 align-self-end">
-                <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Warning card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <button type="button" class="btn btn-primary" id="welcome" data-toggle="modal" data-target="#welcomeToHangman">
-                </button>
-                <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Warning card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
+            <div class="col-3 pr-0">
+                <div class="menu">
+                    <button type="button" class="btn btn-primary" id="welcome" data-toggle="modal" data-target="#welcomeToHangman">
+                    </button>
+                    <button type="button" class="btn shadow-lg w-100" id="restartGame">Restart Game</button>
+                    <button type="button" class="btn btn-lg btn-danger w-100" data-toggle="popover" data-placement="left" title="Game Instructions"
+                        data-content="Hey wine lover!  Press any key to guess the grape varietal. You have 12 attempts before you lose.  Want a tip? Check out the wine description below the bottle!">Instructions</button>
                 </div>
             </div>
         </div>
@@ -106,7 +95,7 @@
             <div class="col-4 align-self-start">
                 <div class="card text-dark mb-3 mw-100 bg-transparent wine_card" id="wineCard">
                     <img class="mx-auto" id="wineBottle" src="" alt="wine bottle">
-                    <div class="card-body bg-dark text-white mt-5 ml-auto" id="wineBody">
+                    <div class="card-body shadow-lg bg-dark text-white mt-5 ml-auto" id="wineBody">
                         <p class="card-text" id="wineText"></p>
                     </div>
                 </div>
@@ -114,8 +103,8 @@
         </div>
     </div>
     <audio id="bgAudio" autoplay="true" loop="true">
-        <source src="assets/music/club.mp3" type="audio/mpeg">
-        <source src="assets/music/dance.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+        <!-- <source src="assets/music/dance.mp3" type="audio/mpeg"> -->
+        <source src="assets/music/club.mp3" type="audio/mpeg"> Your browser does not support the audio element.
     </audio>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

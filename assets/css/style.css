@@ -6,7 +6,7 @@
 ***********************************************/
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:300');
-@import url('https://fonts.googleapis.com/css?family=Coiny|Titillium+Web:700');
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Coiny|Titillium+Web:700');
 body {
     /* background: linear-gradient(141deg, #ccc 25%, #eee 40%, #ddd 55%); */
     background: repeating-linear-gradient(141deg, #fff 10%, rgb(255, 231, 174) 15%, #ddd 20%, rgb(243, 237, 226) 25%);
@@ -25,13 +25,11 @@ body {
     min-height: 853px!important;
     height: 100%;
     background-image: url("../images/background.jpg");
-    /* overflow: auto; */
-    /* position: relative; */
 }
 
 .stats {
     font-family: 'Titillium Web', sans-serif;
-    margin-top: 10rem;
+    margin-top: 7rem;
     opacity: .8;
     font-size: 1.2rem;
     letter-spacing: .2rem;
@@ -52,10 +50,6 @@ body {
 
 #guessedLetters, #currentWord {
     text-transform: uppercase;
-}
-
-#currentWord {
-    /* color: slategrey; */
 }
 
 #guessedLetters {
@@ -84,16 +78,64 @@ body {
     text-justify: auto;
     /* animation: name duration timing-function delay iteration-count direction fill-mode; */
     /* animation-name: none;
-animation-duration: 2s;
-animation-timing-function: cubic-bezier();
-animation-delay: 0ms;
-animation-iteration-count: infinite;
-animation-direction: normal;
-animation-fill-mode: forwards; */
+        animation-duration: 2s;
+        animation-timing-function: cubic-bezier();
+        animation-delay: 0ms;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-fill-mode: forwards; */
 }
 
 #welcome {
     visibility: hidden;
+    display: block;
+}
+
+#restartGame {
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 400;
+    background: rgb(169, 171, 26);
+    color: #fff;
+    border: none;
+    position: relative;
+    height: 60px;
+    font-size: 1.6em;
+    padding: 0 2em;
+    cursor: pointer;
+    transition: 800ms ease all;
+    outline: none;
+}
+
+#restartGame:hover {
+    background: #fff;
+    color: rgb(171, 149, 26);
+}
+
+#restartGame:before, #restartGame:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: rgb(171, 113, 26);
+    transition: 400ms ease all;
+}
+
+#restartGame:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+}
+
+#restartGame:hover:before, #restartGame:hover:after {
+    width: 100%;
+    transition: 800ms ease all;
+}
+
+.menu {
+    margin-top: 3rem;
 }
 
 /* #wineText {

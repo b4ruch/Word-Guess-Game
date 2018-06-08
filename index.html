@@ -31,10 +31,32 @@
     <!--[if lt IE 7]>
             <p id="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+    <div class="modal fade" id="welcomeToHangman" tabindex="-1" role="dialog" aria-labelledby="welcomeToHangman" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="welcomeToHangman">Hangman! the Wine version!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span style="font-weight: bold">Instructions:</span>
+                    <br>
+                    <p>Try guessing the wine's grape type. As you type in, you'll see if your letter matches the word and the
+                        number of attempts remaining. Enjoy the wine!
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="enterGame" data-dismiss="modal">Accept</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="container container-fluid w-75 mt-5 mx-auto main_container">
         <div class="row justify-content-between h-50">
-            <div class="col-3 border">
+            <div class="col-3">
                 <div class="card text-white bg-secondary mb-3 stats " style="max-width: 100%;">
                     <div class="card-body">
                         <h4 class="card-title font-weight-bold" style="display: inline;">Wins: </h4>
@@ -48,7 +70,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3 border">
+            <div class="col-3 border align-self-end">
                 <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
                     <div class="card-header">Header</div>
                     <div class="card-body">
@@ -58,6 +80,8 @@
                 </div>
             </div>
             <div class="col-3 border">
+                <button type="button" class="btn btn-primary" id="welcome" data-toggle="modal" data-target="#welcomeToHangman">
+                </button>
                 <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
                     <div class="card-header">Header</div>
                     <div class="card-body">
@@ -75,37 +99,24 @@
                         <h3 class="card-title font-weight-bold text-center" id="currentWord"></h3>
                         <hr class="card_divider">
                         <span class="card-title font-weight-bold text-center" style="display: block;">Letters already guessed: </span>
-                        <h4 class="card-title font-weight-bold danger" id="guessedLetters"></h4>
+                        <h4 class="card-title font-weight-bold m-0" id="guessedLetters"></h4>
                     </div>
                 </div>
             </div>
             <div class="col-4 align-self-start">
+                <div class="card text-dark mb-3 mw-100 bg-transparent wine_card" id="wineCard">
+                    <img class="mx-auto" id="wineBottle" src="" alt="wine bottle">
+                    <div class="card-body bg-dark text-white mt-5 ml-auto" id="wineBody">
+                        <p class="card-text" id="wineText"></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-
-
-
-    <!-- <h1>HangMan</h1>
-        <br>
-        <h3>Press any key to get started</h3>
-        <h3 style="display: inline;">Wins: </h3>
-        <span id="wins"></span>
-        <br>
-        <h3 style="display: inline;">Losses: </h3>
-        <span id="losses"></span> -->
-    <!-- <span id="wins"></span> -->
-    <!-- <br>
-        <h3>Current Word: </h3>
-        <span id="currentWord"></span>
-        <h3>Number of guesses remaining: </h3>
-        <span id="guessesRemaining"></span>
-        <br>
-        <h3>Letters already guessed: </h3>
-        <span id="guessedLetters"></span> -->
-
-    <script src="assets/javascript/game.js" async defer></script>
+    <audio id="bgAudio" autoplay="true" loop="true">
+        <source src="assets/music/club.mp3" type="audio/mpeg">
+        <source src="assets/music/dance.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+    </audio>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -113,6 +124,7 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
+    <script src="assets/javascript/game.js" async defer></script>
 </body>
 
 </html>

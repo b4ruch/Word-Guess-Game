@@ -15,7 +15,7 @@ body {
     font-family: 'Roboto';
     /* font-weight: 300; */
     /* font-size: 32px; */
-    /* padding-top:40vh; */
+    /* padding-top:5vh; */
     height: 100vh;
     /* overflow: hidden; */
 }
@@ -54,13 +54,69 @@ body {
     text-transform: uppercase;
 }
 
+#currentWord {
+    /* color: slategrey; */
+}
+
 #guessedLetters {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: lightcoral;
 }
 
+.wine_card {
+    background-color: transparent;
+    margin-top: -6rem;
+    opacity: 0;
+}
+
+#wineBottle {
+    max-width: 214px;
+    margin-top: -3rem;
+    /* background-color: transparent; */
+    /* max-height: 150px; */
+}
+
+#wineBody {
+    /* max-width: 70%; */
+    opacity: .8;
+    font-size: .9rem;
+    text-align: justify;
+    text-justify: auto;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    /* animation-name: none;
+animation-duration: 2s;
+animation-timing-function: cubic-bezier();
+animation-delay: 0ms;
+animation-iteration-count: infinite;
+animation-direction: normal;
+animation-fill-mode: forwards; */
+}
+
+#welcome {
+    visibility: hidden;
+}
+
+/* #wineText {
+     text-justify: auto;
+} */
+
 @keyframes blinker {
     50% {
+        opacity: 0;
+    }
+}
+
+@keyframes appear {
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes disappear {
+    0% {
+        opacity: 1;
+    }
+    100% {
         opacity: 0;
     }
 }

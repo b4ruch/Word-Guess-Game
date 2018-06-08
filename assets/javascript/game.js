@@ -68,7 +68,7 @@ var Hangman = {
     },
 
     //Restarts Hangman to original values (game restart)
-    restart: function() {
+    restart: function () {
         this.initialize();
         this.wins = 0;
         this.losses = 0;
@@ -144,7 +144,6 @@ document.onkeypress = function (event) {
                     startGame();
                 }, 2000);
 
-                // debugger;
             }
         }
         else {
@@ -159,7 +158,6 @@ document.onkeypress = function (event) {
                 window.setTimeout(function () {
                     losses.style = "";
                     currentWord.style = "";
-                    // wineCard.style = "animation: disappear 1s forwards;"
                     startGame();
                 }, 2000);
             }
@@ -192,7 +190,11 @@ function initHtml() {
 //Full game restart
 restartGame.onclick = function () {
     Hangman.restart();
-    initHtml();
+    wineCard.style = "animation: disappear 1s forwards;";
+    window.setTimeout(function () {
+        initHtml();
+    }, 1000);
+
 }
 
 

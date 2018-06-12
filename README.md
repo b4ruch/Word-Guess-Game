@@ -1,6 +1,6 @@
 # Word-Guess-Game
  
- #Hangman!  The wine version #
+ #Hangman!  The wine version
 
  * This game is a wine-themed version of the classic game _Hangman_
 

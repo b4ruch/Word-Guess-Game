@@ -8,4 +8,6 @@
 
  * The game is HTML5 compliant.
 
- Comments, Questions? :  Contact me on [GitHub](http://github.com)
+ * To play the game, visit my GitHub page [HERE](https://b4ruch.github.io/Word-Guess_Game)
+
+* *Comments, Questions? :  Contact me on [GitHub](http://github.com/b4ruch)*

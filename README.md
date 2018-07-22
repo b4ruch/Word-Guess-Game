@@ -1,4 +1,4 @@
-# Word-Guess-Game
+# Hangman!  The wine version
  
  #Hangman!  The wine version
 
